@@ -4,8 +4,8 @@ import Vue from 'vue';
 import Vuex from 'vuex';
 // import axios from 'axios';
 import VueResource from 'vue-resource';
-import { sync } from 'vuex-router-sync';
-import auth from 'vue-hamlet';
+// import { sync } from 'vuex-router-sync';
+// import auth from 'vue-hamlet';
 
 import {
   Col, Row, Menu,
@@ -20,9 +20,10 @@ import {
   Checkbox, CheckboxGroup, CheckboxButton, Loading, Message,
   MessageBox, Collapse, CollapseItem,
   Progress, Popover, Tooltip,
-  Notification, Alert, DatePicker,
+  Notification, Alert, DatePicker
 } from 'element-ui';
 import moment from 'moment';
+import '../theme/index.css';
 import App from './App';
 import router from './router';
 
@@ -71,10 +72,15 @@ Vue.use(DatePicker);
 
 Vue.config.productionTip = false;
 
+Vue.prototype.$moment = moment;
+Vue.prototype.$message = Message;
+Vue.prototype.$msgbox = MessageBox;
+Vue.prototype.$notify = Notification;
+
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
   router,
   template: '<App/>',
   components: { App }
-})
+});
