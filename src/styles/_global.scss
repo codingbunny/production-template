@@ -1,0 +1,261 @@
+@import "./_variable.scss";
+
+html{
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  height: 100%;
+  margin: 0;
+  background: #fff;
+  font-size: 14px;
+  padding: 0;
+  font-family: Helvetica Neue,Helvetica,PingFang SC,Hiragino Sans GB,Microsoft YaHei,SimSun,sans-serif;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+}
+
+.txt-gray {
+  color: $color-light-black;
+}
+.wrapper {
+  width: 100%;
+  height: 100%;
+}
+
+code {
+  display: inline-block;
+  padding: 0 10px;
+  clear: both;
+  color: rgba($color-base-black, .8);
+  font-family: 'Consolas', 'Courier', 'Monaco', monospace;
+  white-space: pre;
+  vertical-align: middle;
+  word-wrap: break-word;
+  word-break: break-all;
+}
+
+pre {
+  font-family: 'Consolas', 'Courier', 'Monaco', monospace;
+  vertical-align: middle;
+  word-wrap: break-word;
+  word-break: break-all;
+}
+
+.el-dialog {
+  .el-form-item {
+    .el-button {
+      min-width: 120px;
+    }
+  } 
+
+  .tips-danger {
+    color: $color-danger;
+  }
+}
+
+
+// header
+.header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 56px;
+  background-color: $color-primary;
+  z-index: 2000;
+
+  .logo {
+    display: inline-block;
+    padding: 2px 20px;
+  }
+}
+
+.user-info {
+  float: right;
+  padding: 14px 20px; 
+
+  .el-dropdown-link {
+    color: #fff;
+    line-height: 26px;
+
+    .iconfont {
+      font-size: 18px;
+    }
+
+    .el-icon-arrow-down {
+      font-size: 12px;
+    }
+  }
+
+  .switch-lang {
+    display: inline;
+    margin-left: 20px;
+    color: rgba(255,255,255,.6);
+
+    span {
+      cursor: pointer;
+    }
+  }
+    
+  .active-lang {
+    border-bottom: 1px solid white;
+    padding-bottom: 5px;
+  }
+}
+
+//db-dropdown
+.db-dropdown {
+  min-width: 160px;
+  margin-top: 12px;
+
+  li {
+    font-size: 14px;
+    padding: 0 20px;
+  }
+}
+
+.container {
+  height: 100%;
+  padding-top: 56px;
+}
+
+// menu
+.menu-wrapper {
+  position: fixed;
+  left: 0;
+  padding-top: 20px;
+  width: 200px;
+  height: 100%;
+  background-color: $color-base-black;
+  z-index: 98;
+  overflow: auto;
+
+  .el-menu-item {
+    &:hover,
+    &:focus {
+      background-color: rgba($color-primary, .1);
+    }
+
+    &:active,
+    &.is-active {
+      background-color: rgba($color-primary, .3);
+      color: #fff;
+    }
+  }
+}
+
+// content
+.content {
+  height: 100%;
+  overflow: auto;
+  padding: 20px 20px 40px 220px;
+}
+
+.content-top {
+  margin-bottom: 20px;
+}
+
+// appmanage
+.content-title {
+  h2 {
+    margin-top: 0;
+  }
+}
+
+.p-appmanage {
+  .el-tabs__content {
+    padding: 20px 40px;
+    
+    .el-form-item {
+      &__label {
+        position: absolute;
+        text-align: left;
+        padding-left:10px;
+
+        &::before {
+          position: absolute;
+          left: 0;
+          line-height: 18px;
+        }
+      }
+
+      .el-button {
+        min-width: 120px;
+      }
+    }
+  }
+
+  .email-template {
+    h4 {
+      margin: 0 0 20px; 
+    }
+
+    .el-form {
+      padding: 20px;
+      margin-bottom: 40px;
+      background-color: #f5f6f8;
+
+      code {
+        display: block;
+        padding: 10px 20px;
+        max-height: 240px;
+        background-color: $color-light-blue;
+        border-left: 2px solid rgba($color-primary, .5);
+        overflow: auto;
+      }
+    }
+
+    .view-block {
+      padding: 10px 20px;
+      background-color: #fff;
+      border: 1px solid rgba($color-light-black, .3);
+    }
+  }
+
+  .el-textarea {
+    textarea {
+      max-height: 240px;
+    }
+  }
+
+  .tips-danger {
+    float: right;
+  }
+}
+
+.el-dialog {
+  .random-psw {
+    padding-top: 10px;
+    .el-button {
+      min-width: 20px;
+      margin-right: 20px;
+    }
+  }
+
+  .el-checkbox-group {
+    .el-checkbox {
+      margin: 0 20px 0 0;
+    }
+  }
+}
+
+.el-pagination {
+  float: right;
+  margin: 30px -4px 60px;
+}
+
+.el-table {
+  .el-icon-check {
+    color: $color-success;
+  }
+  .el-icon-close {
+    color: $color-danger;
+  }
+}
+
+// reset psw
+.p-reset {
+  padding: 10px 40px 40px 0;
+  max-width: 800px;
+}

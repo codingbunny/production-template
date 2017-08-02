@@ -1,0 +1,67 @@
+@import "./_variable.scss";
+
+.p-login.container {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  background-position: 50% 0px;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.login-wrap {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 100%;
+}
+
+.login-con {
+  width: 400px;
+  margin: 0 auto;
+  
+  .login-logo {
+    display: block;
+    width: 88px;
+    height: 88px;
+    margin: 0 auto 40px;
+    border-radius: 12px;
+    background-color: rgba($color-primary, .5);
+    text-align: center;
+    line-height: 88px;
+
+    .logo {
+      display: inline-block;
+      vertical-align: middle;
+    }
+  }
+
+  .login-form {
+    input,
+    input:-webkit-autofill  {
+      color: #fff !important;
+      background-color: transparent !important;
+      border: 0;
+      border-bottom: 1px solid rgba($color-base-gray, .5);
+    }
+    .el-button--primary {
+      width: 100%;
+      font-weight: 600;
+      border-radius: 22px;
+    }
+
+    .el-button--text {
+      color: rgba(#fff, .7);
+
+      &:hover,
+      &:focus {
+        color:#fff;
+      }
+    }
+  }
+}
+
+.error {
+  color: $color-danger;
+  text-align: center;
+}
