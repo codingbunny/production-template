@@ -20,12 +20,13 @@ import {
   Checkbox, CheckboxGroup, CheckboxButton, Loading, Message,
   MessageBox, Collapse, CollapseItem,
   Progress, Popover, Tooltip,
-  Notification, Alert, DatePicker
+  Notification, Alert, DatePicker,
 } from 'element-ui';
 import moment from 'moment';
 import '../theme/index.css';
 import App from './App';
 import router from './router';
+import i18n from './i18n';
 
 Vue.use(Vuex);
 Vue.use(VueResource);
@@ -77,10 +78,20 @@ Vue.prototype.$message = Message;
 Vue.prototype.$msgbox = MessageBox;
 Vue.prototype.$notify = Notification;
 
+Vue.prototype.$locale = {
+  change (lang) {
+    Vue.config.lang = lang;
+  },
+  current () {
+    return Vue.config.lang;
+  },
+};
+
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
   router,
+  i18n,
   template: '<App/>',
-  components: { App }
+  components: { App, },
 });
