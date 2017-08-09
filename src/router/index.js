@@ -1,5 +1,8 @@
 import Vue from 'vue';
 import Router from 'vue-router';
+
+import Index from '../views/Index';
+
 import Template from '@/components/Template';
 import Login from '@/components/Login';
 import Account from '@/components/Account';
@@ -9,10 +12,6 @@ import Tabs from '@/components/Tabs';
 import Components from '@/components/Components';
 
 Vue.use(Router);
-
-const root = Vue.component('root', {
-  template: '<router-view></router-view>',
-});
 
 const routes = [
   {
@@ -25,7 +24,7 @@ const routes = [
   },
   {
     path: '/',
-    component: root,
+    component: Index,
     redirect: { name: 'form', },
     meta: {},
     children: [

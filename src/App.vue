@@ -1,4 +1,4 @@
-<template lang="html">
+<!-- <template lang="html">
   <section class="wrapper">
     <template>
       <template v-if="$route.name !== 'login'">
@@ -42,7 +42,30 @@
     </template>
     </template>
   </section>
+</template> -->
+<template lang="html">
+  <section class="wrapper">
+    <router-view></router-view>
+  </section>
 </template>
+
+<script>
+export default {
+  name: 'app',
+  data () {
+    return {
+    };
+  },
+  methods: {
+  },
+};
+</script>
+
+<style lang="scss">
+  @import "./styles/_global.scss";
+  @import "./assets/font/iconfont.css";
+</style>
+
 
 <script>
 export default {
