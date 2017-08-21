@@ -4,8 +4,8 @@ import Vue from 'vue';
 import Vuex from 'vuex';
 // import axios from 'axios';
 import VueResource from 'vue-resource';
-// import { sync } from 'vuex-router-sync';
-// import auth from 'vue-hamlet';
+import { sync } from 'vuex-router-sync';
+import auth from 'vue-hamlet';
 
 import {
   Col, Row, Menu,
@@ -26,7 +26,10 @@ import moment from 'moment';
 import '../theme/index.css';
 import App from './App';
 import router from './router';
+import store from './store';
 import i18n from './i18n';
+
+import API from './api';
 
 Vue.use(Vuex);
 Vue.use(VueResource);
@@ -78,6 +81,10 @@ Vue.prototype.$message = Message;
 Vue.prototype.$msgbox = MessageBox;
 Vue.prototype.$notify = Notification;
 
+Vue.prototype.$api = API;
+Vue.router = router;
+Vue.store = store;
+
 Vue.prototype.$locale = {
   change (lang) {
     Vue.config.lang = lang;
@@ -86,12 +93,19 @@ Vue.prototype.$locale = {
     return Vue.config.lang;
   },
 };
+Vue.use(auth, {
+  appKey: 'SfaB52c65Nm5Genx76rjRRPLH8LDjvvk',
+  // authRedirect: '/login',
+  allowThirdpartyLogin: true,
+});
+sync(store, router);
 
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
   router,
+  store,
   i18n,
   template: '<App/>',
-  components: { App, },
+  components: { App },
 });

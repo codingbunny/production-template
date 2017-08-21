@@ -1,5 +1,7 @@
 // see http://vuejs-templates.github.io/webpack for documentation.
-var path = require('path')
+var path = require('path');
+var apiRoot = 'http://172.16.24.36:1680/';
+var authRoot = 'http://172.16.24.93:17510/';
 
 module.exports = {
   build: {
@@ -23,11 +25,22 @@ module.exports = {
   },
   dev: {
     env: require('./dev.env'),
-    port: 8084,
+    port: 8086,
     autoOpenBrowser: true,
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
-    proxyTable: {},
+    proxyTable: {
+        '/api/common': {
+            target: apiRoot,
+            changeOrigin: true,
+            pathRewrite: {'/api/common' : '/api'},
+        },
+        '/api/auth': {
+            target: authRoot,
+            changeOrigin: true,
+            pathRewrite: {'/api/auth': '/auth'},
+        },
+    },
     // CSS Sourcemaps off by default because relative paths are "buggy"
     // with this option, according to the CSS-Loader README
     // (https://github.com/webpack/css-loader#sourcemaps)
@@ -35,4 +48,4 @@ module.exports = {
     // just be aware of this issue when enabling this option.
     cssSourceMap: false
   }
-}
+};

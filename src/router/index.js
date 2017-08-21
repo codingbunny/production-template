@@ -2,14 +2,12 @@ import Vue from 'vue';
 import Router from 'vue-router';
 
 import Index from '../views/Index';
+import Wentu from '../views/Wentu';
+import Tableau from '../views/Tableau';
+import Kibana from '../views/Kibana';
 
-import Template from '@/components/Template';
 import Login from '@/components/Login';
 import Account from '@/components/Account';
-import Form from '@/components/Form';
-import Table from '@/components/Table';
-import Tabs from '@/components/Tabs';
-import Components from '@/components/Components';
 
 Vue.use(Router);
 
@@ -23,40 +21,35 @@ const routes = [
     component: Login,
   },
   {
-    path: '/',
+    path: '/:id',
     component: Index,
-    redirect: { name: 'form', },
-    meta: {},
+    meta: {
+      auth: ['admin', 'manager', ''],
+    },
     children: [
       {
-        path: 'form',
-        name: 'form',
-        component: Form,
-        meta: {},
+        path: 'wentu',
+        name: 'wentu',
+        component: Wentu,
+        meta: {
+          auth: ['admin', 'manager', ''],
+        },
       },
       {
-        path: 'table',
-        name: 'table',
-        component: Table,
-        meta: {},
+        path: 'tableau',
+        name: 'tableau',
+        component: Tableau,
+        meta: {
+          auth: ['admin', 'manager', ''],
+        },
       },
       {
-        path: 'tabs',
-        name: 'tabs',
-        component: Tabs,
-        meta: {},
-      },
-      {
-        path: 'components',
-        name: 'components',
-        component: Components,
-        meta: {},
-      },
-      {
-        path: 'template',
-        name: 'template',
-        component: Template,
-        meta: {},
+        path: 'kibana',
+        name: 'kibana',
+        component: Kibana,
+        meta: {
+          auth: ['admin', 'manager', ''],
+        },
       },
       {
         path: 'account',
